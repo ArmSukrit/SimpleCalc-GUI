@@ -2,18 +2,21 @@
 
 <DefaultPage>:
     cols: 2
+    input_label: input
     output_label: output
 
     GridLayout:  # output and history log
         rows: 2
 
         Label:
-            id: output
+            id: input
             text: "0"
             halign: "left"
 
-        BoxLayout:
-            orientation: "vertical"
+        Label:
+            id: output
+            text: ""
+            halign: "left"
 
     GridLayout:  # numpads and others
         cols: 4
