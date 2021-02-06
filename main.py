@@ -41,14 +41,30 @@ class DefaultPage(GridLayout):
         "=": None,
     }
 
-    def evaluate(self):
+    def get_input_text(self):
+        return self.input_label.text
+
+    def set_input_text(self, string):
+        self.input_label.text = string
+
+    def set_output_text(self, string):
+        self.output_label.text = string
+
+    def add_equal_sign(self):
+        self.set_input_text(self.get_input_text() + " =")
+
+    def evaluate(self, set_output=False):
         # todo: evaluate a given expression using some kind of API
         result = float(0)
-        return f"{expr} = \n\t {result}"
+        if not set_output:
+            return result
+        self.add_equal_sign()
+        self.set_output_text(result)
 
     def percent(self):
-        evaluated = evaluate(expr)
-        return f"{evaluated}/100 = " + float(evaluated) / 100.0
+        evaluated = self.evaluate()
+        self.set_input_text(f"({self.get_input_text()})/100 =")
+        self.set_output_text(f"{float(evaluated) / 100.0}")
 
     def ce(self):
         pass
