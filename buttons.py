@@ -1,5 +1,6 @@
 appending_operators = ["+", "-", "x", "/"]
 numbers_str = [str(e) for e in range(0, 10)]
+func_buttons = ["%", "CE", "C", "<", "1/x", "x^2", "sqrt(x)", "+/-", "="]
 buttons = {
     "%": None,
     "CE": None,

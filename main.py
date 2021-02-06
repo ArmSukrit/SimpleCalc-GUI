@@ -4,7 +4,7 @@ from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
 
 from buttons import buttons, appending_operators, numbers_str
-from functions import *
+import functions as func
 
 require("2.0.0")
 
@@ -27,8 +27,8 @@ class DefaultPage(GridLayout):
                 self.output_label.text = self.output_label.text[:-1] + value
         elif value == ".":
             pass
-        else:
-            pass
+        elif value == "=":
+            self.output_label.text += " = \n" + func.evaluate(self.output_label.text)
 
 
 class SimpleCalcApp(App):
